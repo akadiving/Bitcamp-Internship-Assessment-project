@@ -13,9 +13,10 @@
         <v-col
         cols="sm"
         >
+        <v-responsive
+        width="100%">
             <v-container 
                 fluid
-                
                 >
                 <v-btn text
                     to="/"
@@ -26,13 +27,17 @@
                 </v-btn>
             
             </v-container>
+        </v-responsive>
+
         </v-col>
         <!--- end of Home button  --->
 
         <!-- Search bar -->
         <v-col
-        cols="sm"
+        cols="auto"
+        class="ml-auto"
         >
+        
         <Search />
         </v-col>
         <!-- end of Search bar -->

@@ -11,7 +11,7 @@
 
         <!-- Home button -->
         <v-col
-        cols="sm"
+        cols="auto"
         >
             <v-container 
                 fluid
@@ -31,7 +31,8 @@
 
         <!-- Search -->
         <v-col
-        cols="sm"
+        cols="auto"
+        class="ml-auto"
         >
         <Search />
         </v-col>
