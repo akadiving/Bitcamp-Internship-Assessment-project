@@ -1,55 +1,45 @@
 <template>
-  <table class="table">
-    <thead class="thead-light">
-      <tr>
-        <th scope="col">Rank</th>
-        <th scope="col">Avatar</th>
-        <th scope="col">Name</th>
-        <th scope="col">User Type</th>
-        <th scope="col">Profile</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="user in Users" :key="user.id">
-        <th scope="row">
-          {{ Users.indexOf(user) + 1 }}
-        </th>
-        <td>
-          <v-avatar
-            color="primary"
-            size="75"
+
+<table class="table table-hover table-responsive-sm">
+  <thead class="thead-dark">
+      <th scope="col">Rank</th>
+      <th scope="col">Avatar</th>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">Profile</th>
+  </thead>
+  <tbody>
+    <tr v-for="user in Users" :key="user.id" class="table-light">
+      <th scope="row">
+        <p class="rank"><b>{{ Users.indexOf(user) + 1 }}</b></p>
+      </th>
+      <td scope="row">
+        <v-avatar
+        color="primary"
+        size="70"
+        >
+          <img v-if="user.avatar_url" class="img-responsive" :src="user.avatar_url"/>
+        </v-avatar>
+      </td>
+      <td scope="row">
+        <h5><a class="text-secondary" target="_blank"  v-bind:href="user.html_url">{{user.login}}</a></h5>
+      </td>
+      <td scope="row">
+        <p class="user-type">{{user.type}}</p>
+      </td>
+      <td scope="row">
+        <v-btn
+          color="orange lighten-2"
+          text
+          :href="user.login"
+          class="profile-btn"
           >
-            <img v-if="user.avatar_url" class="img-responsive" :src="user.avatar_url"/>
-          </v-avatar>
-        </td>
-        <td>
-          <h5><a class="text-secondary" target="_blank"  v-bind:href="user.html_url">{{user.login}}</a></h5>
-        </td>
-        <td>
-          <p class="user-type">
-            {{user.type}}
-          </p>
-          
-        </td>
-        <td>
-          <v-btn
-              color="orange lighten-2"
-              text
-              :href="user.login"
-              class="profile-btn"
-          >
-              View Profile
-          </v-btn>
-        </td>
-
-      </tr>
-    </tbody>
-
-
-  </table>
-
-
-
+            View Profile
+        </v-btn>
+      </td>
+  </tr>
+  </tbody>
+</table>
 </template>
 
 
@@ -83,6 +73,12 @@ h5{
 
 .profile-btn{
   margin-top: 22px;
+}
+
+.rank{
+  margin-top: 22px;
+  font-weight: 500;
+  
 }
 
 tr{
